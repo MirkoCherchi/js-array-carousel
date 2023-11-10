@@ -15,21 +15,6 @@
 // BONUS 3:
 // Al click sulla thumbnail, viene visualizzata l'immagine selezionata;
 
-/* <div class="item active">
-        <img src="img/01.jpg" alt="img 1" />
-      </div>
-      <div class="item">
-        <img src="img/02.jpg" alt="img 2" />
-      </div>
-      <div class="item">
-        <img src="img/03.jpg" alt="img 3" />
-      </div>
-      <div class="item">
-        <img src="img/04.jpg" alt="img 4" />
-      </div>
-      <div class="item">
-        <img src="img/05.jpg" alt="img 5" />
-      </div> */
 
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
@@ -57,16 +42,21 @@ for (let i = 0; i < images.length; i++) {
     
 }
 
-const domItem = document.querySelectorAll('.item')
-console.log(domItem);
+const domItem = document.querySelectorAll('.item');
+
 
 next.addEventListener('click', function(){
-    if (currentItem < domItem.length - 1 ){
+    if (currentItem < domItem.length - 1){
         domItem[currentItem].classList.remove('active');
         currentItem++;
         domItem[currentItem].classList.add('active');
-    }
     
+    } else if (currentItem === 4){
+        domItem[currentItem].classList.remove('active');
+        currentItem = 0;
+        domItem[currentItem].classList.add('active');
+    }
+
 })
 
 prev.addEventListener('click', function(){
@@ -74,6 +64,12 @@ prev.addEventListener('click', function(){
         domItem[currentItem].classList.remove('active');
         currentItem--;
         domItem[currentItem].classList.add('active');
+    
+    }  else if (currentItem === 0){
+        domItem[currentItem].classList.remove('active');
+        currentItem = 4;
+        domItem[currentItem].classList.add('active');
+
     }
     
 })
