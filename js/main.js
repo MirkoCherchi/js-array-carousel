@@ -46,7 +46,7 @@ for (let i = 0; i < images.length; i++) {
     if (i === currentItem){
         item.classList.add('active');
     }
-    
+
     // creazione img
     const img = document.createElement('img');
     img.src = `img/${images[i]}`;
@@ -56,4 +56,28 @@ for (let i = 0; i < images.length; i++) {
     items.append(item)
     
 }
+
+const domItem = document.querySelectorAll('.item')
+console.log(domItem);
+
+next.addEventListener('click', function(){
+    if (currentItem < domItem.length - 1 ){
+        domItem[currentItem].classList.remove('active');
+        currentItem++;
+        domItem[currentItem].classList.add('active');
+    }
+    
+})
+
+prev.addEventListener('click', function(){
+    if (currentItem > 0 ){
+        domItem[currentItem].classList.remove('active');
+        currentItem--;
+        domItem[currentItem].classList.add('active');
+    }
+    
+})
+
+
+
 

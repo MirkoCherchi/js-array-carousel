@@ -13,9 +13,14 @@ body{
     height: 100vh;
     margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    
+    padding-top: 40px;
+}
+
+h1{
+    text-align: center;
+    padding-top: 120px;
+    color: darkgreen;
 }
 
 .items {
@@ -28,7 +33,7 @@ body{
     height: 100%;
     opacity: 0;
     position: absolute;
-    transition: all 0.5s;
+    transition: all 1.5s;
     top: 0;
     bottom: 0;
     right: 0;
