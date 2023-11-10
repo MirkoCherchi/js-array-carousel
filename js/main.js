@@ -38,41 +38,58 @@ for (let i = 0; i < images.length; i++) {
     img.alt = `img ${i}`;
 
     item.append(img);
-    items.append(item)
+    items.append(item);
     
 }
 
 const domItem = document.querySelectorAll('.item');
+const thumbnail = document.querySelectorAll('.opacity');
+if (currentItem === 0) {
+    thumbnail[currentItem].classList.remove('opacity');
+}
 
+// esecuzione in avanti
 
 next.addEventListener('click', function(){
     if (currentItem < domItem.length - 1){
         domItem[currentItem].classList.remove('active');
         currentItem++;
         domItem[currentItem].classList.add('active');
+        thumbnail[currentItem].classList.remove('opacity');
+        thumbnail[currentItem - 1].classList.add('opacity');
     
     } else if (currentItem === 4){
         domItem[currentItem].classList.remove('active');
+        thumbnail[currentItem].classList.add('opacity')
         currentItem = 0;
         domItem[currentItem].classList.add('active');
+        thumbnail[currentItem].classList.remove('opacity');
+        
     }
 
+
 })
+
+// esecuzione indietro
 
 prev.addEventListener('click', function(){
     if (currentItem > 0 ){
         domItem[currentItem].classList.remove('active');
         currentItem--;
         domItem[currentItem].classList.add('active');
+        thumbnail[currentItem].classList.remove('opacity');
+        thumbnail[currentItem + 1].classList.add('opacity');
     
     }  else if (currentItem === 0){
         domItem[currentItem].classList.remove('active');
+        thumbnail[currentItem].classList.add('opacity')
         currentItem = 4;
         domItem[currentItem].classList.add('active');
-
+        thumbnail[currentItem].classList.remove('opacity');
     }
     
 })
+
 
 
 
